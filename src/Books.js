@@ -1,23 +1,21 @@
-import React, { Component } from "react";
+import React from "react";
 import Card from "./Card";
 export default function Books(props) {
   
-const {books , shelfState , onChangeHandler} = props;
-
     return (
       
-      <div className="books-box">
+      <div className="line">
         {
-        
-        books
-          .filter((book) => book.shelf === shelfState)
+       
+        props.books
+          .filter((book) => book.shelf === props.shelfState)
           .map((book1, index) => {
          
             return (
               <Card
                 key={index}
-                shelfState ={shelfState}
-                onChangeHandler={onChangeHandler}
+                shelfState ={props.shelfState}
+                onChangeHandler={props.onChangeHandler}
                 id={book1.id}
                 title={book1.title}
                 author={book1.authors[0]}
