@@ -11,11 +11,12 @@ export default class FirstPage extends Component {
     this.onChangeHandler = this.onChangeHandler.bind(this);
   }
 
-  onChangeHandler(id, e) {
-    updateBook(id, e.target.value);
-    getAllBooks().then((data) => {
+  async onChangeHandler(id, e) {
+    await updateBook(id, e.target.value);
+     getAllBooks().then((data) => {
       var updatedBooks = data;
       this.setState({ books: updatedBooks });
+      console.log(updatedBooks)
     });
   }
 
